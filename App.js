@@ -6,6 +6,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Login from "./Screens/Login.js";
 import Home from "./Screens/Home.js";
 import Cart from "./Screens/Cart.js";
+import Footer from "./Screens/footer.js";
+
 
 const Stack = createStackNavigator();
 
@@ -14,12 +16,13 @@ const Stack = createStackNavigator();
     <View style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="Cart"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Cart" component={Cart} />
+          <Stack.Screen name="Footer" component={Footer} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
