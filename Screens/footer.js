@@ -5,7 +5,7 @@ import { TouchableOpacity } from "react-native-web";
 
 export default function Footer({ pageName, navigation }) {
     return (
-        <View>
+        <View >
             <View
                 style={{
                     position: "absolute",
@@ -21,25 +21,19 @@ export default function Footer({ pageName, navigation }) {
                 <TouchableOpacity onPress={() => { navigation.navigate ('Home')}} >
                     {pageName === 'HomePage'
                     ?  <MaterialIcons  name="home-filled"style={[ homeStyles.headerNavIcon, { fontSize: 28, color: colOrange },]}/>
-                    : <MaterialCommunityIcons  name="home-outline"style={[ homeStyles.headerNavIcon, { fontSize: 30, color: 'black' },]}/>
-                    // pageName==='CartPage' 
-                    // ?  <MaterialIcons  name="home-outlined"style={[ homeStyles.headerNavIcon, { fontSize: 28, color: 'black' },]}/>
-                    // : {}
+                    : <MaterialCommunityIcons  name="home-outline"style={[ homeStyles.headerNavIcon, { fontSize: 30, color: colGray },]}/>
                     }
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => { navigation.navigate ('Cart')}} >
+                <TouchableOpacity onPress={() => navigation.navigate('Cart')} >
                     {pageName === 'HomePage'
                     ? <MaterialCommunityIcons name="shopping-outline" style={[homeStyles.headerNavIcon, { fontSize: 28, color: colGray }]}  />
                     : <MaterialCommunityIcons name="shopping" style={[homeStyles.headerNavIcon, { fontSize: 28, color: colOrange }]}  />
-                    // pageName === 'CartPage'
-                    // ? <MaterialCommunityIcons name="shopping-filled" style={[homeStyles.headerNavIcon, { fontSize: 28, color: colOrange }]}  />
-                    // : {}
                     }
                 </TouchableOpacity>
             </View>
 
-            <View style={{ position: "absolute", bottom: 40, left: "43%" }}>
+            <View style={{ position: "absolute", bottom: 40, alignSelf: 'center', backgroundColor:'rgba(0,0,0,0,)' }}>
                 <Pressable
                     style={({ pressed }) => [
                         pressed ? recordIcon.pressed : recordIcon.normal,
@@ -56,6 +50,10 @@ export default function Footer({ pageName, navigation }) {
 }
 
 // Page styles
+
+const colOrange = "rgb(252, 131, 58)";
+const colGray = "rgba(0, 0, 0, 0.4)";
+
 const homeStyles = StyleSheet.create({
     main: {
         marginTop: 20,
@@ -89,5 +87,4 @@ const recordIcon = StyleSheet.create({
     },
 });
 
-const colOrange = "rgb(252, 131, 58)";
-const colGray = "rgba(0, 0, 0, 0.4)";
+

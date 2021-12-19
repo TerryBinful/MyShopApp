@@ -1,19 +1,21 @@
 import React from "react";
-import Footer from "./footer";
+import { catItems, categoryTabs } from "./allData.js";
 import {
   StyleSheet,
   Text,
   View,
   Image,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native-web";
+import Footer from "./footer.js";
 
 
 export default function Home({ navigation }) {
+  var pageData = 'HomePage'
   return (
     <View style={{ height: "100vh" }}>
       <View style={homeStyles.main}>
@@ -111,82 +113,12 @@ export default function Home({ navigation }) {
         </ScrollView>
       </View>
       <View>
-        <Footer pageName = {'HomePage'} />
+       
       </View>
+      < Footer pageName={'HomePage'} style={{ position:"absolute", bottom: 0}}/>
     </View>
   );
 }
-
-
-
-// Page Data
-const categoryTabs = [
-  { name: "All", active: true },
-  { name: "Roadbikes", active: false },
-  { name: "Mountain", active: false },
-  { name: "Urban bikes", active: false },
-];
-
-const catItems = [
-  {
-    name: "Pinarello Bike",
-    image: require("./Images/pinarelloBike.png"),
-    currency: "$",
-    price: "1,700.00",
-    like: true,
-  },
-  {
-    name: "Bromton Bike",
-    image: require("./Images/bromptonBike.png"),
-    currency: "$",
-    price: "1,500.00",
-    like: false,
-  },
-  {
-    name: "Schwinn Bike",
-    image: require("./Images/schwinaBike.png"),
-    currency: "$",
-    price: "1,200.00",
-    like: false,
-  },
-  {
-    name: "Norco Bike",
-    image: require("./Images/narcoBike.png"),
-    currency: "$",
-    price: "9,80.00",
-    like: false,
-  },
-  {
-    name: "Bamboo Bike",
-    image: require("./Images/bambooBike.png"),
-    currency: "$",
-    price: "7,200.00",
-    like: true,
-  },
-  {
-    name: "Santacruz Bike",
-    image: require("./Images/santaCruzBike.png"),
-    currency: "$",
-    price: "19,80.00",
-    like: true,
-  },
-  {
-    name: "Trax Bike",
-    image: require("./Images/traxBike.png"),
-    currency: "$",
-    price: "9,80.00",
-    like: true,
-  },
-  {
-    name: "Norco Bike-Used",
-    image: require("./Images/narcoBike.png"),
-    currency: "$",
-    price: "7,80.00",
-    like: false,
-  },
-];
-
-
 
 // Page styles
 const colOrange = "rgb(252, 131, 58)";
@@ -221,8 +153,8 @@ const custText = StyleSheet.create({
   text1: {
     fontSize: 16,
     color: "rgba(0, 0, 0, 0.4)",
+    fontWeight: '500',
   },
-
   text2: {
     fontSize: 26,
     fontWeight: "bold",
@@ -282,16 +214,3 @@ const catRow = StyleSheet.create({
     padding: 4,
   },
 });
-
-const recordIcon = StyleSheet.create({
-  pressed: {
-    backgroundColor: colOrange,
-    padding: 20,
-    borderRadius: 100,
-  },
-  normal: {
-    backgroundColor: "black",
-    padding: 20,
-    borderRadius: 100,
-  },
-})
